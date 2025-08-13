@@ -1,3 +1,4 @@
+// primero se declaran las variables y verifica con funciones.
 let numeroSecreto = 0;
 let intentos = 0;
 let listaNumerosSorteados = [];
@@ -13,12 +14,12 @@ function asignarTextoElemento(elemento, texto) {
 
 function verificarIntento() {
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
-    
+    //el código verifica primero si adivinaste el número, si es asi te lo señala si no sigue el codigo dando otra oportunidad.
     if (numeroDeUsuario === numeroSecreto) {
         asignarTextoElemento('p',`Acertaste el número en ${intentos} ${(intentos === 1) ? 'vez' : 'veces'}`);
         document.getElementById('reiniciar').removeAttribute('disabled');
     } else {
-        //El usuario no acertó.
+        //El usuario no acertó, al número secreto.
         if (numeroDeUsuario > numeroSecreto) {
             asignarTextoElemento('p','El número secreto es menor');
         } else {
@@ -71,5 +72,6 @@ function reiniciarJuego() {
     document.querySelector('#reiniciar').setAttribute('disabled','true');
     
 }
+
 
 condicionesIniciales();
